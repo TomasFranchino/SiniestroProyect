@@ -32,8 +32,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-success" {% if not has_unidades and not object %}disabled{% endif
-                    %}>Guardar</button>
+                <button type="submit" class="btn btn-success" {{ has_unidades|yesno:',disabled' }}>Guardar</button>
                 <a href="{% url 'siniestros:siniestro_list' %}" class="btn btn-outline-secondary">Volver al listado</a>
             </div>
         </form>

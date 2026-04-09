@@ -39,8 +39,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-check">
-                        <input type="checkbox" id="sospechoso" name="sospechoso" class="form-check-input" {% if
-                            filtro_sospechoso %}checked{% endif %}>
+                        <input type="checkbox" id="sospechoso" name="sospechoso" class="form-check-input" {{ filtro_sospechoso|yesno:'checked,' }}>
                         <label for="sospechoso" class="form-check-label">Solo sospechosos</label>
                     </div>
                 </div>
