@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Cliente, Siniestro, Unidad
+from .models import Cliente, Siniestro, Unidad, Marca
 
 
 class ClienteForm(forms.ModelForm):
@@ -13,8 +13,7 @@ class UnidadForm(forms.ModelForm):
 	class Meta:
 		model = Unidad
 		fields = [
-			"cliente",
-			"modelo",
+			"cliente",			"marca",			"modelo",
 			"anio",
 			"valor_auto",
 			"numero_poliza",

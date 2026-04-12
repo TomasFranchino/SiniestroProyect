@@ -10,11 +10,24 @@ class Cliente(models.Model):
 		return self.nombre
 
 
+class Marca(models.Model):
+	nombre = models.CharField(max_length=100, unique=True)
+
+	def __str__(self):
+		return self.nombre
+
+
 class Unidad(models.Model):
 	cliente = models.ForeignKey(
 		Cliente,
 		on_delete=models.CASCADE,
 		related_name="unidades",
+	)
+	marca = models.ForeignKey(
+		Marca,
+		on_delete=models.CASCADE,
+		null=True,
+		blank=True,
 	)
 	modelo = models.CharField(max_length=120)
 	anio = models.PositiveIntegerField()
@@ -23,7 +36,7 @@ class Unidad(models.Model):
 	fecha_alta_poliza = models.DateField()
 
 	def __str__(self):
-		return f"{self.modelo} - Poliza {self.numero_poliza}"
+		return f"{self.marca} {self.modelo} - Poliza {self.numero_poliza}"
 
 
 class Siniestro(models.Model):

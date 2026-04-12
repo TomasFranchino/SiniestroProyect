@@ -1,6 +1,12 @@
 from django.contrib import admin
 
-from .models import Cliente, Siniestro, Unidad
+from .models import Cliente, Siniestro, Unidad, Marca
+
+
+@admin.register(Marca)
+class MarcaAdmin(admin.ModelAdmin):
+	list_display = ("nombre",)
+	search_fields = ("nombre",)
 
 
 @admin.register(Cliente)
